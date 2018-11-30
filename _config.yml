@@ -1,6 +1,6 @@
 # Site Info
-title: '실실실실'
-tagline: '하늘 한 번 보아요'
+title: '기록을 하자'
+tagline: '기록을 하자'
 description: '공부도 하고 이것저것 기록하려 합니다.'
 baseurl: ""
 url: http://somefood.github.io
@@ -24,8 +24,8 @@ version: 1.0.0
 
 # About/contact
 author:
-  name: HONG SEOKJU
-  description: Harder (홍석주)
+  name: HONG SEOKJU (홍석주)
+  description: I have to study!!
   gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
   contact:
     #linkedin:  https://www.linkedin.com/in/lizhihao

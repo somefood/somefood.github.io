@@ -1,7 +1,7 @@
 # Site Info
-title: '기록을 하자'
-tagline: '기록을 하자'
-description: '공부도 하고 이것저것 기록하려 합니다.'
+title: '석주 IT 주석'
+tagline: '석주 IT 주석'
+description: 'IT공부와 하고 이것저것 기록하려 합니다.'
 baseurl: ""
 url: http://somefood.github.io
 logo: '/public/logo.png'

@@ -32,6 +32,7 @@ title: Home
 
   </head>
   <body>
+    <!-- 태그 리스트 보여주기 -->
     <div class="tags-expo">
       <div class="tags-expo-list">
         {% for tag in site.categories %}
@@ -39,8 +40,8 @@ title: Home
         {% endfor %}
       </div>
       <hr/>
-
       <div class="tags-expo-section">
+        <!-- 바로가기 만들기 -->
         <a href="/blog/"><h4 id="shortcut"><img id="shortcut-img" src="/assets/images/shortcut.png">최근 글 바로가기</h4></a>
         <ul class="tags-expo-posts">
           {% for post in site.posts offset: 0 limit: 10  %}

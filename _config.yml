@@ -46,6 +46,7 @@ nav:
     - { Django: '/blog/categories/#django' }
     - { MikroTik: '/blog/categories/#mikrotik' }
     - { TIL: '/blog/categories/#til' }
+    - { Jekyll: '/blog/categories/#jekyll }
     - { Tags: '/blog/tags/' }
   About:
     - '/about/'

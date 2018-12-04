@@ -47,6 +47,7 @@ nav:
     - { MikroTik: '/blog/categories/#mikrotik' }
     - { TIL: '/blog/categories/#til' }
     - { Jekyll: '/blog/categories/#jekyll' }
+    - { ETC: '/blog/categories/#etc '}
     - { Tags: '/blog/tags/' }
   About:
     - '/about/'

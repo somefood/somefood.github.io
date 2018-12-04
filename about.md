@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+comments: false
 ---
 
 
@@ -19,5 +20,6 @@ title: About
 
 disqus 네임: {{ site.disqus_short_name }}
 
+{{page.comments}}
 
 하이후헤호

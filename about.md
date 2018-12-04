@@ -14,3 +14,10 @@ title: About
 아직은 부족한 점이 많아 다른 분들의 코드를 보고 이해하려 노력중입니다.<br>
 
 감사합니다.
+
+사이트네임: {{ site.url }}{{ page.url }}{{page.id}}
+
+disqus 네임: {{ site.disqus_short_name }}
+
+
+하이후헤호

@@ -10,7 +10,8 @@ comments: true
 재부팅을 눌러 진행해야 한다. 
 이런 번거로움을 줄이기 위해 스크립트와 스케쥴러를 통해 장비가 부팅되었을 시 펌웨어 버전 비교 후 자동으로 업데이트를 진행해준다.
 
-'''/system routerboard
+```
+/system routerboard
 :if ([get current-firmware] = [get upgrade-firmware]) do={
     :log info message="current firmware is latest version";
 } else={
@@ -19,4 +20,4 @@ comments: true
     :delay 2s
     /system reboot
 }
-'''
+```

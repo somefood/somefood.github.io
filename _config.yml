@@ -44,6 +44,7 @@ nav:
     # - { Categories: '/blog/categories/' }
     - { Python: '/blog/categories/#python' }
     - { Django: '/blog/categories/#django' }
+    - { Linux: '/blog/categories/#linux'}
     - { MikroTik: '/blog/categories/#mikrotik' }
     - { TIL: '/blog/categories/#til' }
     - { Jekyll: '/blog/categories/#jekyll' }

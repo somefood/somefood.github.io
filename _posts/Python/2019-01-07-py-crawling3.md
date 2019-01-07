@@ -56,3 +56,4 @@ for i in top3_list:
     })
     slack.chat.post_message('#webtoon', '2019년 벅스차트 TOP 3', attachments=attachments)
 ```
+

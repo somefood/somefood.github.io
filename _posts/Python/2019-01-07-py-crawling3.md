@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from slacker import Slacker
 token = 'xoxb-12312312312312312312' # slack으로 만든 봇 ID를 입력해준다.
 
-html = requests.get('https://music.bugs,co.kr/chart').text
+html = requests.get('https://music.bugs.co.kr/chart').text
 soup = BeautifulSoup(html,'html.parser')
 
 top3_list=[]

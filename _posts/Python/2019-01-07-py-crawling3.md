@@ -57,5 +57,6 @@ for i in top3_list:
     slack.chat.post_message('#webtoon', '2019년 벅스차트 TOP 3', attachments=attachments)
 ```
 
+### 결과는 다음과 같이 표시된다.
 <img src='/assets/post_images/slackbot_bugs.PNG'>
 

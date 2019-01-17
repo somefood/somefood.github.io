@@ -95,3 +95,78 @@ with smtplib.SMTP_SSL('smtp.naver.com', 465) as server:
 
 print('이메일 발송')
 ```
+
+연습문제
+- 네이버 웹툰 목록 중 업데이트 된 웹툰 크롤링 해서 이메일로 타이틀 명 및 썸네일 사진 보내보기
+
+```python
+# 신작 네이버 웹툰 목록을 크롤링, 요약메일 발송 해보기
+# 필요한 패키지: requests, beautifulsoup4
+
+import os
+import requests
+from bs4 import BeautifulSoup
+
+import smtplib
+from email.message import EmailMessage
+from email.mime.application import MIMEApplication
+
+list_url = 'http://comic.naver.com/webtoon/weekday.nhn'
+html = requests.get(list_url).text
+soup = BeautifulSoup(html, 'html.parser')
+comic_list = []
+for a_tag in soup.select('a[href*=list\.nhn]'):
+    if not a_tag.select('.ico_updt'):
+        continue
+    img_tag = a_tag.find('img')
+    title = img_tag.attrs['title'] # img 태그 내에서 title 속성 값
+    img_src = img_tag['src'] # 썸네일 경로명
+    img_name = os.path.basename(img_src) #썸네일 파일명
+    img_data = requests.get(img_src, headers={'Referer': list_url}).content
+    comic_list.append({
+        'title': title,
+        'img': {
+            'src': img_src,
+            'name': img_name,
+            'data': img_data,
+        },
+    })
+
+message = EmailMessage()
+message['Subject'] = '웹툰 업데이트'
+message['From'] = 'somefood@naver.com'
+message['To'] = 'somefood@mikrotik.co.kr'
+message.set_content('''이메일 내용
+''')
+message.add_alternative('''
+<h1> 만화 목록</h1>
+<ul>
+    
+''', subtype='html')
+
+for comic in comic_list:
+    with open(comic['img']['name'], 'wb') as f:
+        f.write(comic['img']['data'])
+
+    message.add_alternative('''
+        <li>{}<img src="cid:{}"></li>
+    '''.format(comic['title'],comic['img']['name']), subtype='html')
+
+    with open(comic['img']['name'], 'rb') as f:
+        filename = comic['img']['name']
+        cid = filename
+        img_data = f.read()
+        part = MIMEApplication(img_data, name=filename)
+        part.add_header('Content-ID', '<' + cid + '>')
+        message.attach(part)
+
+message.add_alternative('''
+</ul>
+''',subtype='html')
+
+with smtplib.SMTP_SSL('smtp.naver.com', 465) as server:
+    server.ehlo()
+    server.login('somefood', 'elwkdldjhd123#')
+    server.send_message(message)
+
+```

@@ -169,4 +169,4 @@ with smtplib.SMTP_SSL('smtp.naver.com', 465) as server:
     server.login('somefood', 'elwkdldjhd123#')
     server.send_message(message)
 ```
-<img src='/assets/post_images/email_webtoon_crawling.PNG'>
+<img src='/assets/post_images/email_webtoon_crwaling.PNG'>

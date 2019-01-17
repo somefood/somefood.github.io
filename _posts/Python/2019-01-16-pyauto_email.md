@@ -168,5 +168,5 @@ with smtplib.SMTP_SSL('smtp.naver.com', 465) as server:
     server.ehlo()
     server.login('somefood', 'elwkdldjhd123#')
     server.send_message(message)
-
 ```
+<img src='/assets/post-images/email_webtoon_crawling.PNG'>

@@ -20,13 +20,13 @@ comments: True
   - 가장 쉬우나, 건당 발송 비용 발생
   - 선거/마트 홍보 문자 등에 사용
   - 사람들이 요즘 잘 안봄
-  - 서비스 업체의 open aip를 활용
+  - 서비스 업체의 open api를 활용
 - Android/iOS 앱 푸쉬
   - 메세지 발송에는 추가 비용이 없음
   - 단, 푸쉬를 너무 많이 보내면, 고객들이 푸쉬를 끄거나, 앱을 지울수도 있음
 - 메세지 서비스 활용: 카톡, 라인, 슬랙, 텔래그램 등
   - 서비스 업체의 OpenAPI를 통해 발송 가능
-  
+
 이번 장에서는 네이버 메일 SMTP를 통해 이메일을 보내볼 것이다.
 
 사전 준비
@@ -141,7 +141,7 @@ message.set_content('''이메일 내용
 message.add_alternative('''
 <h1> 만화 목록</h1>
 <ul>
-    
+
 ''', subtype='html')
 
 for comic in comic_list:

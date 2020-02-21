@@ -1,7 +1,7 @@
 # Site Info
-title: '석주의 주석달기'
-tagline: '석주의 주석달기'
-description: 'IT공부와 하고 이것저것 기록하려 합니다.'
+title: '미소여우의 주석달기'
+tagline: ' 주석달기'
+description: 'IT공부를 하면서 배우고 느낀 것을 이것저것 기록하는 블로그입니다.'
 baseurl: ""
 url: http://somefood.github.io
 logo: '/public/logo.png'
@@ -25,7 +25,7 @@ version: 1.0.0
 # About/contact
 author:
   name: HONG SEOKJU (홍석주)
-  description: I have to study!!
+  description: 미소여우 (Hong SeokJu)
   gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
   contact:
     #linkedin:  https://www.linkedin.com/in/lizhihao

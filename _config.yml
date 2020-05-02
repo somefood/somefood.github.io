@@ -11,10 +11,6 @@ plugins:
   - jekyll-paginate
 markdown: kramdown
 kramdown:
-    highlighter: rouge
-    syntax_highlighter_opts:
-        block:
-            line_numbers: true
   input: GFM
 excerpt_separator: "<!-- more -->"
 sass:

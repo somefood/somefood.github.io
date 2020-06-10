@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Django 실전 정리
+title: Django01 프로젝트 - UpdateView와 DeleteView 사용
 category: Django
 tags: [django, python]
 comments: true
 ---
 
-Django UpdateView와 DeleteView 사용
+Django01 프로젝트 - Django UpdateView와 DeleteView 사용
 =======
 
 지금까지는 FBV 기반으로 수정과 삭제를 해보았는데, 계속 공부해보면서 UpdateView와 DeleteView를 사용해서 수정과 삭제를 진행해 보았다.
@@ -72,6 +72,7 @@ class StoreDeleteView(DeleteView):
 
 #### html 코드
 ```html
+{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,6 +87,7 @@ class StoreDeleteView(DeleteView):
 </form>
 </body>
 </html>
+{% endraw %}
 ```
 
 ## urls 추가

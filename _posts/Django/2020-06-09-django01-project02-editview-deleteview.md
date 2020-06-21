@@ -17,6 +17,30 @@ Django01 프로젝트 - Django UpdateView와 DeleteView 사용
 - [클래스 뷰 - 공식 사이트](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-editing/#django.views.generic.edit.UpdateView)
 - [form 관련](https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html)
 
+## 변경 전 코드
+```python
+@login_required
+def post_new(request):
+    template_name = 'board/board_success.html'
+    if request.method == "POST":
+        print(request.POST)
+        username = request.user
+        form = BoardForm(request.POST)
+        if form.is_valid():
+            item = form.save(commit=False)
+            user = User.objects.get(username=username)
+            item.writer = user
+            item.board_save()
+            message = "항목을 추가하였습니다."
+            return render(request, template_name, {"message": message})
+    else:
+        template_name = 'board/board_form.html'
+        form = BoardForm
+        print(request.GET)
+        print(request.user.profile.nickname)
+        return render(request, template_name, {"form": form})
+```
+
 ## import
 ```python
 # views.py

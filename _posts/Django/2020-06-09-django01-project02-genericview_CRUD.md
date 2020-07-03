@@ -153,7 +153,8 @@ class StoreDeleteView(DeleteView):
   success_url = reverse_lazy('store:index')
 ```
 > DeleteView의 template_name은 `앱이름_confirm_delete.html`이다.
-#### Delte html 코드
+
+#### Delete html 코드
 ```html
 {% raw %}
 <!DOCTYPE html>

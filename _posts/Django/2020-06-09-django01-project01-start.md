@@ -27,7 +27,7 @@ Django01 프로젝트 - 시작하기
 `django-admin startapp accounts, store, board` 앱 별로 다 실행해준다.
 
 - 모델 생성: 각 앱들에 대한 모델들을 정의해줬다.
-#### accounts
+### accounts
 Django에서 제공해주는 User와 1대1 관계를 통해 추가로 받고 싶은 정보들을 설정했다.
 
 ```python
@@ -58,7 +58,7 @@ def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 ```
 
-#### store
+### store
 가게와 메뉴에 대한 정보를 관리한다.
 
 ```python
@@ -99,7 +99,8 @@ class Menu(models.Model):
         return "{} - {}".format(self.store, self.name)
 ```
 
-##### board
+#### board
+게시판을 관리하는 앱이다.
 ```python
 from django.db import models
 from django.contrib.auth.models import User
@@ -124,13 +125,4 @@ class UserBoard(models.Model):
 
 ```
 
-
-#### 홈페이지 설정
-```python
-def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['popular_stores'] = Store.objects.all()[:5]
-    context['latest_articles'] = UserBoard.objects.all()[:5]
-    return context
-
-```
+앞으로 이를 기반으로 홈페이지를 제작하고 알게된 것을 포스팅 해보고자 한다.

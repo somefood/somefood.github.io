@@ -110,6 +110,7 @@ def like(request):
 
 ### html
 ```html
+{% raw %}
 <a href="{% url 'store:like' store.pk %}">
     {% if user in store.like_users.all %}
     <a href="{% url 'store:like' store.pk %}"><i class="fas fa-heart"></i></a>
@@ -120,4 +121,5 @@ def like(request):
         {{ store.like_users.count }} 명이 좋아합니다.
     </p>
 </a>
+{% endraw %}
 ```

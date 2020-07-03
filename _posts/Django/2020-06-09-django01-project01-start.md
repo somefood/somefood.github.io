@@ -27,7 +27,9 @@ Django01 프로젝트 - 시작하기
 `django-admin startapp accounts, store, board` 앱 별로 다 실행해준다.
 
 - 모델 생성: 각 앱들에 대한 모델들을 정의해줬다.
-##### accounts: Django에서 제공해주는 User와 1대1 관계를 통해 추가로 받고 싶은 정보들을 설정했다.
+#### accounts
+Django에서 제공해주는 User와 1대1 관계를 통해 추가로 받고 싶은 정보들을 설정했다.
+
 ```python
 from django.db import models
 from django.contrib.auth.models import User
@@ -56,40 +58,42 @@ def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 ```
 
-##### store
-```python
-from django.db import models
-from django.shortcuts import reverse
+#### store
+가게와 메뉴에 대한 정보를 관리한다.
 
+```python
 class Store(models.Model):
     name = models.CharField(max_length=50, verbose_name="가게명")
-    location = models.CharField(max_length=100, verbose_name="위치")
+    slug = models.SlugField('SLUG', unique=True, allow_unicode=True, help_text='one word for alias')
+    location = models.CharField(max_length=100, blank=True, verbose_name="위치")
     phone_number = models.CharField(max_length=30, blank=True, verbose_name="연락처")
     description = models.TextField(blank=True, verbose_name="설명")
     store_image = models.ImageField(blank=True, upload_to="store/store_pic")
-    likes = models.IntegerField()
+    created_dt = models.DateTimeField(auto_now_add=True)
+    modified_dt = models.DateTimeField(auto_now=True)
+    likes = models.IntegerField(verbose_name='좋아요', default=0)
+    tags = TaggableManager(blank=True)
 
     class Meta:
         verbose_name = '가게'
         verbose_name_plural = '가게'
+        ordering = ['likes', ]
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('store:detail', args=[self.id])
+        return reverse('store:detail', args=[self.slug])
 
 class Menu(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE, verbose_name="가게명")
     name = models.CharField(max_length=50, verbose_name="메뉴")
-    description = models.CharField(max_length=50, verbose_name="설명")
-    votes = models.IntegerField(default=0, verbose_name="투표수")
+    description = models.CharField(max_length=50, blank=True, verbose_name="설명")
     food_image = models.ImageField(blank=True, upload_to="store/menu_pic")
 
     class Meta:
         verbose_name = '메뉴'
         verbose_name_plural = '메뉴'
-        ordering = ['-votes',]
 
     def __str__(self):
         return "{} - {}".format(self.store, self.name)
@@ -117,5 +121,16 @@ class UserBoard(models.Model):
         ordering = ['-created_date']
         verbose_name = '게시판'
         verbose_name_plural = '게시판'
+
+```
+
+
+#### 홈페이지 설정
+```python
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['popular_stores'] = Store.objects.all()[:5]
+    context['latest_articles'] = UserBoard.objects.all()[:5]
+    return context
 
 ```

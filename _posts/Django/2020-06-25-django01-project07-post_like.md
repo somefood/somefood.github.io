@@ -25,7 +25,6 @@ like_count = models.PositiveIntegerField(default=0)
 
 ### urls
 ```python
-urls
 path('<int:pk>/like/', views.like, name='like'),
 ```
 
@@ -50,6 +49,7 @@ def like(request, pk):
 
 ### JavaScript
 ```JavaScript
+{% raw %}
 <script>
     var MyGlobal = {
         url: "{% url 'board:like' %}",
@@ -77,6 +77,7 @@ $("[class*=like]").click(function () {
         }
     })
 });
+{% endraw %}
 ```
 
 ### views

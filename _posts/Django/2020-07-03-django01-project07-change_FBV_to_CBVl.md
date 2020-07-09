@@ -8,7 +8,6 @@ comments: true
 
 Django01 프로젝트 - accounts앱 CBV로 바꾸기
 =======
-{% raw %}
 accounts앱은 로그인, 로그아웃, 회원가입등을 담당하는 앱이다.
 예전에 OneToOneField로 Profile을 연결해서 지금까지 사용중이다.
 Abstractuser를 통해 Profile의 내용들을 User모델에 넣을까 하다가, 굳이 그럴 필요는 없을거 같아서 일단 두고
@@ -100,9 +99,9 @@ class UserLoginView(auth_views.LoginView):
     template_name = 'accounts/signin.html'
 
     def dispatch(self, request, *args, **kwargs):
-    if request.user.is_authenticated:
-        return redirect(reverse('home'))
-    return super().dispatch(request, *args, **kwargs)
+        if request.user.is_authenticated:
+            return redirect(reverse('home'))
+        return super().dispatch(request, *args, **kwargs)
 ```
 
 ##회원가입
@@ -204,6 +203,7 @@ class UserSignUpView(CreateView):
 
 ###html
 ```html
+{% raw %}
 {% if form.non_field_errors %}
 	<div class="alert alert-danger">{{ form.non_field_errors }}</div>
 {% endif %}
@@ -249,5 +249,5 @@ class UserSignUpView(CreateView):
 		<button type="submit" class="btn btn-outline-primary">회원가입하기</button>
 </form>
  {% endblock %}
-```
 {% endraw %}
+```

@@ -3,7 +3,7 @@ title: '미소여우의 주석달기'
 tagline: '미소여우의 주석달기'
 description: 'IT공부를 하면서 배우고 느낀 것을 이것저것 기록하는 블로그입니다.'
 baseurl: ""
-url: http://somefood.github.io
+url: https://somefood.github.io
 logo: '/public/logo.png'
 
 # Site configurations
@@ -68,3 +68,4 @@ mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
 # disqus_short_name: 'somefood_github_io' # leave blank if you don't want disqus
 disqus_short_name: 'somefood' # leave blank if you don't want disqus
+google_fonts: "Nanum+Gothic:400, 700"

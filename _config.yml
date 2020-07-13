@@ -41,15 +41,14 @@ nav:
     - '/blog/'
   Category:
     - '/'
-    # - { Categories: '/blog/categories/' }
     - { Python: '/blog/categories/#python' }
     - { Django: '/blog/categories/#django' }
+    - { Algorithm: '/blog/categories/#algorithm' }
     - { Linux: '/blog/categories/#linux'}
     - { MikroTik: '/blog/categories/#mikrotik' }
     - { TIL: '/blog/categories/#til' }
     - { Jekyll: '/blog/categories/#jekyll' }
     - { ETC: '/blog/categories/#etc '}
-    - { Tags: '/blog/tags/' }
   About:
     - '/about/'
   Github Project:

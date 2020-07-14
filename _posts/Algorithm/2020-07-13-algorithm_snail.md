@@ -27,6 +27,7 @@ n은 4로 주어졌다 가정하고, 규칙을 한 번 살펴보도록 하자.
 
 ## 코드
 코드를 통해 한 번 살펴보면 이해하기 좋을 것이다.
+#### 파이썬
 ```python
 def snail(n):
     arr = [[0 for j in range(n)] for i in range(n)] #1
@@ -66,6 +67,36 @@ for i in arr:
 9. 이 부분이 중요하다. 규칙을 보면, (열, 행) 증가 (열, 행) 감소 형태이다. 이것을 위해 trans를 곱하기 -1을 해주어서 스위칭을 해주는 것이다.
 
 이 과정들을 거치고 나면 달팽이 배열이 예쁘게 표시될 것이다.
+
+#### JavaScript
+```JavaScript
+function snail(n){
+  var array = Array.from(Array(n),()=> Array());
+  var row = 0
+  var col = -1
+  var count = 1
+  var trans = 1
+  while (n>0){
+    for(var i=0; i<n; i++){
+      col+=trans;
+      console.log("row:", row, "col:", col)
+      array[row][col] = count;
+      count++;
+    }
+    n--;
+    for(var j=0; j<n; j++){
+      row+=trans;
+      console.log("row:", row, "col:", col)
+      array[row][col] = count;
+      count++;
+    }
+    trans *= -1
+  }
+  console.log(array);
+}
+
+snail(5)
+```
 
 ## 느낀점
 처음에 이 문제를 보았을 때, 어떤식으로 접근해야할지 감이 안왔다. 풀어왔던 이중배열 문제들은 첫 번째 행의 열에 대해 제어하는 그런 류의 문제(삼각형 문제)들만 풀어봤기 때문이다. 결국에는 계속 인터넷을 보고 풀었는데, 계속 잊어먹게 되는 것이다. 그러다 이번에는 필기도 해보면서 풀어보았고, 결국 풀 수 있었다. 예전에 참고했던것과 완전 판반이긴 했지만, 혼자 생각해보며 풀었다는 것에 큰 의의를 두고 싶다. 참 알고리즘이란 것은 어렵지만, 프로그래밍에 있어 사고력을 키워줄 수 있는 거 같다. 앞으로도 열심히 풀어봐야겠다.

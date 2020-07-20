@@ -6,10 +6,7 @@ tags: [django, python]
 comments: true
 ---
 
-Django01 프로젝트 - TAG기능 구현하기
-=======
-
-태그는
+태그는 우리가 이미 많은 SNS나 글들을 볼때, 이용중이다. 태그를 눌러서 관련된 게시글을 찾을 때 아주 좋은 기능이다. 친절한 Django에서는 이 Tag 패키지가 있기에 이것을 사용해 보았다.
 
 ## 태그용 패키지 설치
 ```python
@@ -42,9 +39,9 @@ class UserBoard(models.Model):
 ```
 
 ## admin 파일 수정
-- list_display에 'tag_list' 추가: TaggableManager 클래스는 list_display 항목에 직접 등록할 수 없어서 아래에 메소드로 정의해서 등록해준다.
-- get_queryset 메소드 오버라이딩: ManyToManyField 관계의 Tag 테이블의 관련 레코드를 한 번의 쿼리로 미리 가져오기 위해 정의. N:N관계의 성능을 높이기 위해 뒤에 prefetch_related() 메소드 사용.
-- tag_list 메소드 정의: tag_list 항목에 보여줄 내용 정의. 각 태그의 name필드를 보여줌.
+- **list_display에 'tag_list' 추가**: TaggableManager 클래스는 list_display 항목에 직접 등록할 수 없어서 아래에 메소드로 정의해서 등록해준다.
+- **get_queryset 메소드 오버라이딩**: ManyToManyField 관계의 Tag 테이블의 관련 레코드를 한 번의 쿼리로 미리 가져오기 위해 정의. N:N관계의 성능을 높이기 위해 뒤에 prefetch_related() 메소드 사용.
+- **tag_list 메소드 정의**: tag_list 항목에 보여줄 내용 정의. 각 태그의 name필드를 보여줌.
 ```python
 @admin.register(UserBoard)
 class UserBoardAdmin(admin.ModelAdmin):

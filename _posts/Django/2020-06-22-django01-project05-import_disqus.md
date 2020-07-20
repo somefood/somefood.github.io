@@ -6,10 +6,7 @@ tags: [django, python]
 comments: true
 ---
 
-Django01 프로젝트 - DISQUS를 이용해 댓글기능 구현하기
-=======
-
-#### 사전 작업
+## 사전 작업
 DISQUS를 활용해서 댓글 기능을 추가해보도록 해보았다. 그전에 DISQUS에서 사이트 하나를 만들어 줘야한다.
 1. DISQUS 사이트에 접속해서 가입 후 `get_started` 클릭
 2. `I want to install Disqus on my site` 클릭
@@ -17,14 +14,14 @@ DISQUS를 활용해서 댓글 기능을 추가해보도록 해보았다. 그전�
 4. 아래 Basic으로 무료로 제공하는 거 사용
 
 
-#### settings 파일 변수 추가
+## settings 파일 변수 추가
 굳이 안해줘도 되긴 하지만 하드 코딩을 조금 줄이기 위해 settings파일에 변수로 저장했다.
 ```python
 DISQUS_SHORTNAME = 'my-site'
 DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000' #로컬에서 확인
 ```
 
-#### views 수정
+## views 수정
 댓글은 포스트들을 상세보기 할때만 필요하기에 DetailView에서 구현해주면 된다.
 get_context_data를 사용해서 템플릿에 사용할 변수들을 추가해 줄 수 있다.
 ```python
@@ -44,7 +41,7 @@ class BoardDetail(DetailView):
         return context
 ```
 
-#### html 내용 추가
+## html 내용 추가
 디테일 파일에 들어가서 disqus에서 제공하는 코드들을 삽입하고 템플릿 변수들을 넣어주면 된다.
 ```html
 <div id="disqus_thread"></div>

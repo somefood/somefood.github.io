@@ -6,9 +6,6 @@ tags: [django, python]
 comments: true
 ---
 
-Django01 프로젝트 - 좋아요 기능 구현
-=======
-
 AJAX를 사용해서 좋아요 기능을 구현해 보았다.
 
 

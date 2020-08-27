@@ -1,0 +1,241 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.7); }
+  @media screen and (max-width: 992px) {
+    body {
+      font-size: 16px; } }
+
+a {
+  color: #2c98f0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  a:hover, a:active, a:focus {
+    color: #2c98f0;
+    outline: none;
+    text-decoration: none !important; }
+
+p {
+  margin-bottom: 1.5em; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  margin: 0 0 30px 0; }
+
+figure {
+  margin-bottom: 2.5em;
+  float: left;
+  width: 100%; }
+  figure figcaption {
+    font-size: 16px;
+    width: 80%;
+    margin: 20px auto 0px auto;
+    color: #b3b3b3;
+    font-style: italic;
+    font-family: 'Karla', sans-serif; }
+    @media screen and (max-width: 480px) {
+      figure figcaption {
+        width: 100%; } }
+
+::-webkit-selection {
+  color: #fff;
+  background: #2c98f0; }
+
+::-moz-selection {
+  color: #fff;
+  background: #2c98f0; }
+
+::selection {
+  color: #fff;
+  background: #2c98f0; }
+
+
+.Portfolio--nav {
+  padding-top: 3em;
+  padding-bottom: 40px;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 1001;
+  background: #f2f3f7;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  float: left;
+}
+.Portfolio--nav ul {
+  text-align: center;
+}
+.Portfolio--nav ul li{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 1s;
+}
+.Portfolio--nav ul li:hover{
+  text-decoration: underline;
+}
+
+.Portfolio--nav ul li a{
+  color: rgba(0, 0, 0, 0.7);
+  transition: 0.5s;
+}
+.Portfolio--nav ul li a:hover{
+  color: #2c98f0;
+  font-size: 18px;
+}
+
+
+.profile-area .profile-img{
+  background-color: red;
+  margin: 0 auto 30px;
+  width: 150px;
+  height: 150px;
+}
+.profile-area .profile-bio .title{
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#Portfolio--main {
+  width: calc(100% - 300px);
+  transition: 0.5s;
+  float:right;
+}
+#Portfolio--main .content{
+  padding: 2.5em;
+}
+
+#Portfolio--hero {
+  min-height: 500px;
+  background-position: center;
+  background-image: url(/portfolio/assets/notebook.jpg);
+  background-size: cover;
+  width: 100%;
+  /* float: left; */
+  margin-bottom: 10em;
+  clear:both;
+  position: relative;
+}
+
+#Portfolio--hero::before {
+    content: "";
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    height: 100%;
+    display: block;
+    z-index: 99;
+    position: absolute;
+}
+
+#Portfolio--hero .hero-text{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  z-index: 100;
+  color: white;
+}
+
+#Portfolio--hero .hero-text .title{
+  color: white;
+  font-size: 30px;
+}
+
+
+#Portfolio--experience .experience-area {
+  display: flex;
+}
+
+#Portfolio--main .heading-meta{
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+.project {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.project .desc {
+  background: #2c98f0;
+  width: 100%;
+  height: 300px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.project .desc:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .Portfolio--nav{
+    width: 300px;
+    -moz-transform: translateX(-300px);
+    -webkit-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    -o-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+  #Portfolio--main {
+    width: 100%;
+  }
+}

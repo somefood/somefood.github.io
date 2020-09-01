@@ -41,12 +41,13 @@ nav:
     - '/blog/'
   Category:
     - '/'
+    - { TIL: '/blog/categories/#til' }
     - { Python: '/blog/categories/#python' }
     - { Django: '/blog/categories/#django' }
     - { Algorithm: '/blog/categories/#algorithm' }
     - { Linux: '/blog/categories/#linux'}
+    - { Git: '/blog/categories/#git' }
     - { MikroTik: '/blog/categories/#mikrotik' }
-    - { TIL: '/blog/categories/#til' }
     - { Jekyll: '/blog/categories/#jekyll' }
     - { ETC: '/blog/categories/#etc '}
   About:

@@ -43,6 +43,8 @@
       li {
         @include transition(all .1s ease-in-out);
         padding: 0 1rem;
+        font-size: 0.9rem;
+        line-height: 30px;
         &:hover {
           list-style-type: disc;
           padding: 0 .5rem;
@@ -51,6 +53,9 @@
     }
     a {
       text-decoration: none;
+      h2 {
+        color: #ec4c6a;
+      }
     }
     .post-date {
       display: inline-block;
@@ -62,4 +67,3 @@
     font-family: $font-sans;
   }
 }
-

@@ -1,15 +1,16 @@
 ---
 layout: post
-title: Django01 프로젝트 - 시작하기
+title: Django01 프로젝트 - 동국푸드(1) 시작하기
 category: Django
 tags: [django, python]
 comments: true
 ---
 
 > 결과물은 아래 링크에서 확인 가능합니다.
-http://somefood.pythonanywhere.com/
+[깃허브](https://github.com/somefood/dongguk_food)
+[결과물](http://somefood.pythonanywhere.com/)
 
-Django01 프로젝트 - 시작하기
+Django01 프로젝트 - 동국푸드 시작하기
 =======
 
 지금까지 패스트캠퍼스와 여러 튜토리얼을 보면서 Django에 대해 어느정도 지식을 쌓아뒀지만, 아직까지 나만의 프로젝트를 만들어 본적이 없었다. 개발자가 되기 위해서 중요한 것은 `뭐든 만들어 보자.` 인거 같다. 그렇기에 첫 번째 프로젝트를 시작해 보려고 한다.
@@ -173,5 +174,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
+
+여기까지 했으면 아래의 명령어를 마지막으로 입력해주자.
+> python manage.py makemigrations
+> python manage.py migrate
+
+첫번째는 모델에 대해서 DB에 반영해줄 내용들을 만들어주고,
+두번째로 DB에 적용시켜주는 것이다.
 
 앞으로 이를 기반으로 홈페이지를 제작하고 알게된 것을 포스팅 해보고자 한다.

@@ -6,7 +6,6 @@ tags: [django, python]
 comments: true
 ---
 
-
 > 결과물은 아래 링크에서 확인 가능합니다.
 [깃허브](https://github.com/somefood/dongguk_food)
 [결과물](http://somefood.pythonanywhere.com/)

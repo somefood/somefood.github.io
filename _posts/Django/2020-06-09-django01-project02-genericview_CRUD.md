@@ -1,175 +1,125 @@
 ---
 layout: post
-title: Django01 프로젝트 - GenericView CRUD 구현
+title: Django01 프로젝트 - 동국푸드(2) urls 설정
 category: Django
 tags: [django, python]
 comments: true
 ---
 
-Django01 프로젝트 - Django GenericView CRUD 구현
-=======
+> 결과물은 아래 링크에서 확인 가능합니다.
+[깃허브](https://github.com/somefood/dongguk_food)
+[결과물](http://somefood.pythonanywhere.com/)
 
-지금까지 FBV기반으로 CRUD로 구현해봤는데, CBV기반으로 바꾸어 보기로 했다.
 
-####참고 자료:
-- [클래스 뷰 - 공식 사이트](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-editing/#django.views.generic.edit.UpdateView)
-- [form 관련](https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html)
+이전 시간에 모델을 설정했으니, 그에 대해 url을 설정해준다.
 
-# import
-먼저 제네릭 뷰들을 갖고 온다.
+## 프로젝트 urls 설정
+먼저 프로젝트의 urls 파일에 아래 처럼 추가해주자. 뭔가 많아 보일테지만 일단은 입력해주자.
 ```python
-# views.py
-from django.views.generic import GreateView, DetailView, UpdateView, DeleteView
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
+from store.models import Store
+
+class HomePageView(TemplateView):
+
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['store_list'] = Store.objects.filter(category='restaurant')[:1] | \
+                                Store.objects.filter(category='bar')[:1] | \
+                                Store.objects.filter(category='cafe')[:1]
+
+        return context
+
+urlpatterns = [
+    path('board/', include('board.urls')),
+    path('store/', include('store.urls')),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', HomePageView.as_view(), name='home'),
+    path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
+]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 ```
+- HomePageView는 최초 접속 시 보여줄 화면에 대해 정의한 것인데, 따로 둘데가 없기에 urls에 바로 정의해줬다.
+- accounts를 보면 두개가 있기에 의아할 수도 있는데, 첫번째는 내가 정의한 앱으로 가는 것이고, 두번째는 장고에서 기본 제공해주는 auth앱으로 들어가는 것이다. 장고가 기본적으로 비밀번호 변경, 찾기 같은 기능을 제공해주는데 이것을 이용해주려고 둔 것이다.
+- include를 사용해서 만약 'url/board'로 들어왔으면 나머지의 내용들은 board의 urls에서 참고하겠다는 의미이다.
+- 맨 마지막에는 DEBUG가 True일 때 작동들 하는 것이다. debug_toolbar에 대해서는 나중에 적도록 하겠다.
 
-# CREATE
-
-### 변경 전 FBV 기반
+## 나머지 앱 urls 설정
+지금은 views의 내용을 아직 만들지 않았기에 오류가 뜰테지만 일단은 입력해주자.
+#### accounts
 ```python
-@login_required
-def post_new(request):
-    template_name = 'board/board_success.html'
-    if request.method == "POST":
-        username = request.user
-        form = BoardForm(request.POST)
-        if form.is_valid():
-            item = form.save(commit=False) # 유저를 저장하기 위해 commit을 미룸
-            user = User.objects.get(username=username)
-            item.writer = user
-            item.board_save()
-            message = "항목을 추가하였습니다."
-            return render(request, template_name, {"message": message})
-    else:
-        template_name = 'board/board_form.html'
-        form = BoardForm
-        return render(request, template_name, {"form": form})
-```
+from django.urls import path
+from . import views
 
-### 변경 후 CBV 기반
-LoginRequiredMixin은 장고에서 제공해주는 것으로 FBV에서 사용되는 login_required와 같은 기능이다.
+app_name = 'accounts'
+urlpatterns = [
+	path('login/', views.UserLoginView.as_view(), name='login'),
+	path('logout/', views.signout, name='logout'),
+	path('signup/', views.UserSignUpView.as_view(), name='signup'),
+	path('signup/done/', views.UserSignUpDoneView.as_view(), name='signup_done'),
+	path('mypage/', views.MyPageV.as_view(), name='mypage'),
+	path('checkuser/', views.check_user, name='check_user'),
+	path('checknickname/', views.check_nickname, name='check_nickname'),
+	path('finduser/', views.FindUser.as_view(), name='find_user')
+]
+```
+- 이름대로 login, logout, 회원가입, 마이페이지가 있다.
+- checkuser, checknickname: 회원가입 시 유저명, 닉네임 중복을 확인하는 용으로 쓴다. (ajax 활용)
+- finduser: 유저 검색 기능이다.
+
+#### store
 ```python
-class BoardCreateV(LoginRequiredMixin, CreateView):
-    model = UserBoard
-    fields = ('title', 'content', 'tags')
-    success_url = reverse_lazy('board:index')
-    template_name = 'board/board_form.html'
+from django.urls import path
+from . import views
 
-    # 폼의 writer에 현재 로그인된 유저를 저장하고 이후 진행하게 한다.
-    def form_valid(self, form):
-        form.instance.writer = self.request.user
-        return super().form_valid(form)
+app_name = 'store'
+urlpatterns = [
+    path('', views.StoreIndexView.as_view(), name='index'),
+    path('category/<str:category>/', views.CategoryView.as_view(), name='category'),
+    path('like/', views.like, name='like'),
+    path('detail/<str:slug>/', views.StoreDetailView.as_view(), name='detail'),
+    path('detail/<str:slug>/comment/', views.CommentListView.as_view(), name='comment'),
+    path('detail/<str:slug>/comment/create/', views.comment_create, name='comment_create'),
+    path('detail/<str:slug>/comment/update/<int:pk>/', views.comment_update, name='comment_update'),
+    path('detail/<str:slug>/comment/delete/<int:pk>/', views.comment_delete, name='comment_delete'),
+    path('create/', views.StoreCreateView.as_view(), name='store_add'),
+    path('edit/<int:pk>/', views.StoreEditView.as_view(), name='store_edit'),
+    path('delete/<int:pk>/', views.StoreDeleteView.as_view(), name='store_delete'),
+]
 ```
+- 가게 리스트와 상세페이지, 가게글 CRUD,(superuser만) 댓글(CRUD)를 구현할 것이다.
 
-# READ
-### 변경 전 FBV 기반
+#### board
 ```python
-def post_detail(request, pk=pk):
-    post = get_object_or_404(UserBoard, pk=pk)
-    return render(request, 'board/board_detail', {'post', post})
+from django.urls import path
+from . import views
+
+app_name = 'board'
+urlpatterns = [
+    path('', views.BoardIndex.as_view(), name='index'),
+    path('detail/<str:slug>/', views.BoardDetail.as_view(), name='detail'),
+    path('detail/<str:slug>/comment/create/', views.comment_create, name='comment_create'),
+    path('detail/<str:slug>/comment/', views.CommentListView.as_view(), name='comment'),
+    path('detail/<str:slug>/comment/create/', views.comment_create, name='comment_create'),
+    path('detail/<str:slug>/comment/update/<int:pk>/', views.comment_update, name='comment_update'),
+    path('detail/<str:slug>/comment/delete/<int:pk>/', views.comment_delete, name='comment_delete'),
+    path('like/', views.like, name='like'),
+    path('post/new/', views.BoardCreateV.as_view(), name='post_add'),
+    path('post/edit/<int:pk>/', views.BoardUpdateV.as_view(), name='post_edit'),
+    path('post/delete/<int:pk>/', views.BoardDeleteV.as_view(), name='post_delete'),
+]
 ```
-
-### 변경 후 CBV 기반
-```python
-class BoardDetail(DetailView):
-    model = UserBoard
-    template_name = 'board/detail.html'
-```
-> DetailView의 template_name은 `앱이름_detail.html`이다.
-
-# UPDATE
-
-### 변경 전 FBV 기반
-```python
-@login_required
-def post_edit(request, pk):
-    post = get_object_or_404(UserBoard, pk=pk)
-    if request.method == "POST":
-        form = BoardForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save()
-            post.save()
-            return HttpResponseRedirect(reverse('board:detail', kwargs={'pk':pk}))
-    else:
-        form = BoardForm(instance=post)
-    return render(request, 'board/board_form.html', {"form": form})
-```
-
-
-### 변경 후 CBV 기반
-OwnerOnlyMixin은 AccessMixin이라는 클래스를 상속해서 해당 글 작성자가 접근했을 때만 이용할 수 있도록 했다.
-```python
-class BoardUpdateV(OwnerOnlyMixin, UpdateView):
-    model = UserBoard
-    fields = ('title', 'content', 'tags')
-    template_name = 'board/board_form.html'
-```
-- fields: 모델에 있는 칼럼들 중 템플릿 form으로 사용할 것들을 지정한다. 모두 원하면 `__all__` 사용
-- template_name_suffix: 템플릿명의 접두사 지정, 위처럼 입력하면 `앱이름_edit_form.html`으로 접근한다.
-
-> 참고로 Createview와 Updateview template_name을 지정하지 않으면 기본적으로 `앱이름_form.html` 형태로 지정된다.
-
-#### Create & Update html 코드
-필자는 bootstrap을 사용해서 css를 꾸미고 있는 중이라 class명을 활용을 해야한다. 그렇기 위해서 앱 하나를 설치해줄 것이다.
-`pip install django-widget-tweaks`
-이후 settings 파일에 앱을 추가해 주자.
-`INSTALLED_ALLS += [widget_tweaks]`
-
-```html
-{% raw %}
-{% extends 'base.html' %}
-{% load widget_tweaks %}
-
-{% block content %}
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-    <div class="form-group">
-        {{ field.label_tag }}
-        {% render_field field class="form-control" %}
-    </div>
-    {% endfor %}
-    <input class="btn btn-primary" type="submit" value="수정">
-</form>
-{% endblock %}
-{% endraw %}
-```
-- load widget_tweaks: 위에서 설치한 앱을 로드한다.
-- render_field: 필드에 대해서 커스터마이징 해준다.
-
-# Delete
-### 변경 전 FBV
-삭제는 별거 없다. 갖고와서 delete로 삭제해주면 된다.
-```python
-def post_delete(request, pk):
-    post = get_object_or_404(UserBoard, pk=pk)
-    post.delete()
-    return redirect('board:index')
-```
-
-### 변경 후 CBV
-```python
-class StoreDeleteView(DeleteView):
-  model = Store
-  success_url = reverse_lazy('store:index')
-```
-> DeleteView의 template_name은 `앱이름_confirm_delete.html`이다.
-
-#### Delete html 코드
-```html
-{% raw %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="" method="post">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{ obejct }"?</p>
-    <input type="submit" value="Confirm">
-</form>
-</body>
-</html>
-{% endraw %}
-```
+- 게시판 리스트와 상세페이지, 게시판 CRUD,(superuser만) 댓글(CRUD)를 구현할 것이다.

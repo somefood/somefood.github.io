@@ -1,10 +1,16 @@
 ---
 layout: post
-title: Django01 프로젝트 - DISQUS를 이용해 댓글기능 구현하기
+title: Django01 프로젝트 - 동국푸드(5) DISQUS 사용해보기(지금은 사용 안함)
 category: Django
 tags: [django, python]
 comments: true
 ---
+
+> 결과물은 아래 링크에서 확인 가능합니다.
+[깃허브](https://github.com/somefood/dongguk_food)
+[결과물](http://somefood.pythonanywhere.com/)
+
+동국푸드 같은 경우에는 댓글 기능을 직접 만들어 주는게 맞는거 같아 현재는 삭제한 기능이다. 그래도 참고용으로는 보면 좋을거 같기에 기록해 두자.
 
 ## 사전 작업
 DISQUS를 활용해서 댓글 기능을 추가해보도록 해보았다. 그전에 DISQUS에서 사이트 하나를 만들어 줘야한다.

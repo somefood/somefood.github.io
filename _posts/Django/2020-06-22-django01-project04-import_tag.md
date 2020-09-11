@@ -1,10 +1,15 @@
 ---
 layout: post
-title: Django01 프로젝트 - TAG기능 구현하기
+title: Django01 프로젝트 - 동국푸드(4) 태그 구현하기
 category: Django
 tags: [django, python]
 comments: true
 ---
+
+
+> 결과물은 아래 링크에서 확인 가능합니다.
+[깃허브](https://github.com/somefood/dongguk_food)
+[결과물](http://somefood.pythonanywhere.com/)
 
 태그는 우리가 이미 많은 SNS나 글들을 볼때, 이용중이다. 태그를 눌러서 관련된 게시글을 찾을 때 아주 좋은 기능이다. 친절한 Django에서는 이 Tag 패키지가 있기에 이것을 사용해 보았다.
 

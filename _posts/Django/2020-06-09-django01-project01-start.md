@@ -6,6 +6,9 @@ tags: [django, python]
 comments: true
 ---
 
+> 결과물은 아래 링크에서 확인 가능합니다.
+http://somefood.pythonanywhere.com/
+
 Django01 프로젝트 - 시작하기
 =======
 
@@ -29,6 +32,7 @@ Django01 프로젝트 - 시작하기
 - 모델 생성: 각 앱들에 대한 모델들을 정의해줬다.
 ### accounts
 Django에서 제공해주는 User와 1대1 관계를 통해 추가로 받고 싶은 정보들을 설정했다.
+**(현재는 AbstractUser로 변경했기에 참고 정도로만 봐주자.)**
 
 ```python
 from django.db import models
@@ -56,6 +60,18 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+```
+
+#### 현재 accounts는 AbstractUser로 변경했다.
+```python
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    email = models.EmailField(max_length=254, unique=True, verbose_name='이메일')
+    nickname = models.CharField(max_length=30, unique=True, verbose_name='닉네임')
+    phone_number = models.CharField(max_length=30, unique=True, verbose_name='전화번호')
 ```
 
 ### store
@@ -123,6 +139,39 @@ class UserBoard(models.Model):
         verbose_name = '게시판'
         verbose_name_plural = '게시판'
 
+```
+
+### settings 파일 설정
+```python
+INSTALLED_APPS += [
+    'accounts',
+    'board',
+    'store',
+]
+# 유저 모델을 새로 사용하는거기 때문에 아래를 추가해준다.
+AUTH_USER_MODEL = 'accounts.User'
+
+# 로그인 필요 시, 이동되는 페이지
+LOGIN_URL = '/accounts/login/'
+# 로그인 성공 시, 리다이렉트 url
+LOGIN_REDIRECT_URL = 'home'
+# 로그아웃 성공 시, 리다이렉트 url
+LOGOUT_REDIRECT_URL ='home'
+# 웹페이지에 사용할 정적파일의 최상위 URL 경로
+
+STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+# 정적파일이 위치한 경로들을 지정하는 설정 항목, 이 설정 통해서 앱 밑에 static 파일 만들고 그런듯 함
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+# collectstatic 시 파일 위치
+STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
+
+# 유저들이 업로드한 미디어 파일들에 대한 설정
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
 앞으로 이를 기반으로 홈페이지를 제작하고 알게된 것을 포스팅 해보고자 한다.

@@ -225,9 +225,28 @@ figure {
 /* about section */
 #Portfolio--about .about-content .picture img {
 	width: 100%;
+	border-radius: 15px;
 }
 
-#Portfolio--about .about-content .text {
+#Portfolio--about .about-content .name {
+	font-size: 2rem;
+	text-align: center;
+}
+
+#Portfolio--about .about-content .job {
+	text-align: center;
+}
+
+#Portfolio--about .info .extra-info a{
+	width: 50px;
+	line-height: 50px;
+	background: #eee;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #000000;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
 }
 
 .project {

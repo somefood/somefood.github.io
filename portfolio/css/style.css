@@ -223,7 +223,8 @@ figure {
 }
 
 /* about section */
-#Portfolio--about .about-content .picture {
+#Portfolio--about .about-content .picture img {
+	width: 100%;
 }
 
 #Portfolio--about .about-content .text {
@@ -296,11 +297,15 @@ figure {
   }
 }
 
-.icon i {
+.icon i, .icon img {
 	font-size: 2.5rem;
   position: absolute;
-  left: 30px;
+  left: 20px;
   top: 5px;
+}
+
+.icon img {
+	top: 15px;
 }
 
 .color-1 .icon {
@@ -308,29 +313,16 @@ figure {
 	background:#0863b5;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-1 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #0863b5 transparent
-}
-
-.color-1 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #0863b5 transparent transparent transparent
+.color-1 .icon::after{
+		content: "Python";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }
 
 .color-2 .icon {
@@ -338,29 +330,16 @@ figure {
 	background:#fec600;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-2 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #fec600 transparent
-}
-
-.color-2 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #fec600 transparent transparent transparent
+.color-2 .icon::after{
+		content: "Django";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }
 
 .color-3 .icon {
@@ -368,29 +347,16 @@ figure {
 	background:#e3001f;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-3 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #e3001f transparent
-}
-
-.color-3 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #e3001f transparent transparent transparent
+.color-3 .icon::after{
+		content: "Javscript";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }
 
 .color-4 .icon {
@@ -398,29 +364,16 @@ figure {
 	background:#009ee3;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-4 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #009ee3 transparent
-}
-
-.color-4 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #009ee3 transparent transparent transparent
+.color-4 .icon::after{
+		content: "HTML";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }
 
 .color-5 .icon {
@@ -428,29 +381,16 @@ figure {
 	background:#13a538;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-5 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #13a538 transparent
-}
-
-.color-5 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #13a538 transparent transparent transparent
+.color-5 .icon::after{
+		content: "CSS";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }
 
 .color-6 .icon {
@@ -458,27 +398,14 @@ figure {
 	background:#954a97;
 	width:100%;
 	height:50px;
-	top: -20px;"
+	top: -30px;
 }
 
-.color-6 .icon:before{
-	position: absolute;
-	content: '';
-	top:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 50px 30px 50px;
-	border-color: transparent transparent #954a97 transparent
-}
-
-.color-6 .icon:after{
-	position: absolute;
-	content: '';
-	bottom:-30px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 30px 50px 0 50px;
-	border-color: #954a97 transparent transparent transparent
+.color-6 .icon::after{
+		content: "Git";
+    position: absolute;
+    left: 95px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    top: 5px;
 }

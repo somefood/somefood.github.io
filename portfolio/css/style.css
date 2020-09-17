@@ -101,16 +101,33 @@ figure {
   color: #fff;
   background: #2c98f0; }
 
+/* 시작 */
+.motto-area {
+		text-align: center;
+}
+
+.motto-text {
+	padding: 1.2rem;
+  font-size: 2rem;
+  text-align: center;
+	display: inline-block;
+}
+
+.motto-text:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 10px;
+    background-image: linear-gradient(to right, royalblue, aquamarine);
+}
 
 .Portfolio--nav {
   padding-top: 3em;
   padding-bottom: 40px;
-  width: 300px;
+  width: 250px;
   height: 100%;
   position: fixed;
-  overflow-y: scroll;
   z-index: 1001;
-  background: #f2f3f7;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   float: left;
@@ -135,7 +152,6 @@ figure {
 }
 .Portfolio--nav ul li a:hover{
   color: #2c98f0;
-  font-size: 18px;
 }
 
 
@@ -150,23 +166,25 @@ figure {
   font-size: 22px;
 }
 
+/* main seciont */
 #Portfolio--main {
-  width: calc(100% - 300px);
+  width: calc(100% - 250px);
   transition: 0.5s;
   float:right;
+	border: 1px solid rgba(0,0,0,0.1);
 }
+
 #Portfolio--main .content{
   padding: 2.5em;
 }
 
+/* hero section */
 #Portfolio--hero {
   min-height: 500px;
   background-position: center;
   background-image: url(/portfolio/assets/notebook.jpg);
   background-size: cover;
   width: 100%;
-  /* float: left; */
-  margin-bottom: 10em;
   clear:both;
   position: relative;
 }
@@ -194,16 +212,21 @@ figure {
   font-size: 30px;
 }
 
-
-#Portfolio--experience .experience-area {
-  display: flex;
+#Portfolio--main .heading-meta{
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 5px;
+	text-align: center;
+	font-size: 30px;
+	padding-bottom: 50px;
 }
 
-#Portfolio--main .heading-meta{
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 5px;
+/* about section */
+#Portfolio--about .about-content .picture {
+}
+
+#Portfolio--about .about-content .text {
 }
 
 .project {
@@ -214,6 +237,7 @@ figure {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .project .desc {
   background: #2c98f0;
   width: 100%;
@@ -226,9 +250,41 @@ figure {
   opacity: 1;
 }
 
+#Portfolio--skills {
+	background-color: #f9f9ff;
+}
+
+#Portfolio--skills .skill-image {
+	width: 64px;
+	height: 64px;
+	align-self: center;
+}
+.card {
+	visibility: hidden;
+	margin-bottom: 70px;
+}
+
+.show {
+	visibility: visible;
+	animation: show 1s linear;
+}
+
+@keyframes show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#Portfolio--experience {
+	background-color: #f9f9ff;
+}
+
 @media screen and (max-width: 768px) {
   .Portfolio--nav{
-    width: 300px;
+    width: 250px;
     -moz-transform: translateX(-300px);
     -webkit-transform: translateX(-300px);
     -ms-transform: translateX(-300px);
@@ -238,4 +294,191 @@ figure {
   #Portfolio--main {
     width: 100%;
   }
+}
+
+.icon i {
+	font-size: 2.5rem;
+  position: absolute;
+  left: 30px;
+  top: 5px;
+}
+
+.color-1 .icon {
+	position: absolute;
+	background:#0863b5;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-1 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #0863b5 transparent
+}
+
+.color-1 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #0863b5 transparent transparent transparent
+}
+
+.color-2 .icon {
+	position: absolute;
+	background:#fec600;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-2 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #fec600 transparent
+}
+
+.color-2 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #fec600 transparent transparent transparent
+}
+
+.color-3 .icon {
+	position: absolute;
+	background:#e3001f;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-3 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #e3001f transparent
+}
+
+.color-3 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #e3001f transparent transparent transparent
+}
+
+.color-4 .icon {
+	position: absolute;
+	background:#009ee3;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-4 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #009ee3 transparent
+}
+
+.color-4 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #009ee3 transparent transparent transparent
+}
+
+.color-5 .icon {
+	position: absolute;
+	background:#13a538;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-5 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #13a538 transparent
+}
+
+.color-5 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #13a538 transparent transparent transparent
+}
+
+.color-6 .icon {
+	position: absolute;
+	background:#954a97;
+	width:100%;
+	height:50px;
+	top: -20px;"
+}
+
+.color-6 .icon:before{
+	position: absolute;
+	content: '';
+	top:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 50px 30px 50px;
+	border-color: transparent transparent #954a97 transparent
+}
+
+.color-6 .icon:after{
+	position: absolute;
+	content: '';
+	bottom:-30px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #954a97 transparent transparent transparent
 }

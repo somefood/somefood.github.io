@@ -44,13 +44,14 @@ table {
 	border-spacing: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 body {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.8;
-  color: rgba(0, 0, 0, 0.7); }
+}
   @media screen and (max-width: 992px) {
     body {
       font-size: 16px; } }
@@ -70,7 +71,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   margin: 0 0 30px 0; }
 
@@ -84,7 +85,7 @@ figure {
     margin: 20px auto 0px auto;
     color: #b3b3b3;
     font-style: italic;
-    font-family: 'Karla', sans-serif; }
+    font-family: 'Noto Sans KR', sans-serif; }
     @media screen and (max-width: 480px) {
       figure figcaption {
         width: 100%; } }
@@ -154,12 +155,15 @@ figure {
   color: #2c98f0;
 }
 
-
 .profile-area .profile-img{
-  background-color: red;
-  margin: 0 auto 30px;
-  width: 150px;
-  height: 150px;
+		margin: 0 auto 30px;
+    border-radius: 50%;
+		background-image: url('../assets/seokju.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
 }
 .profile-area .profile-bio .title{
   font-weight: 700;
@@ -237,6 +241,18 @@ figure {
 	text-align: center;
 }
 
+#Portfolio--about .my-info {
+	padding: 20px 0;
+	letter-spacing: 1.5px;
+	font-size: 16px;
+}
+
+#Portfolio--about .info .extra-info p{
+	font-size: 16px;
+	color: #777;
+	padding-bottom: 2.5em;
+}
+
 #Portfolio--about .info .extra-info a{
 	width: 50px;
 	line-height: 50px;
@@ -284,17 +300,35 @@ figure {
 	margin-bottom: 70px;
 }
 
-.show {
+.fadeInLeft {
 	visibility: visible;
-	animation: show 1s linear;
+	animation: fadeInLeft 1s linear;
 }
 
-@keyframes show {
+.fadeInRight {
+	visibility: visible;
+	animation: fadeInRight 1s linear;
+}
+
+@keyframes fadeInLeft {
 	from {
 		opacity: 0;
+		transform: translate3d(-50px, 0, 0);
 	}
 	to {
 		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translate3d(50px, 0, 0);
+	}
+	to {
+		opacity: 1;
+		transform: none;
 	}
 }
 

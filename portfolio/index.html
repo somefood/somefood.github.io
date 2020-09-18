@@ -60,9 +60,16 @@
               </div>
             </div>
             <div class="col-md-7 info">
-              <div>
+              <div class="info-area">
+                <div class="my-info">
+                  안녕하세요. 언제나 성장하기를 원하고 궁금한 것은 꼭 해결해보고자 하는 주니어 백엔드 개발자 홍석주입니다.
+                  제 포트폴리오와 함께 많은 관심 부탁드립니다. 궁금하신 점이 있으시면 연락부탁드립니다. 감사합니다.
+                </div>
                 <div class="extra-info">
-                  <p><i class="far fa-envelope"></i> iamseokjuhong@gmail.com</p>
+                  <p>
+                    <i class="far fa-envelope"></i> iamseokjuhong@gmail.com<br />
+                    <i class="fas fa-university"></i> Dongguk Univ. 2019.02 ~ ing
+                  </p>
                   <a href="https://github.com/somefood"><i class="fab fa-github"></i></a>
                   <a href="https://somefood.github.io"><i class="fab fa-blogger"></i></a>
                   <a href="mailto:iamseokjuhong@gmail.com"><i class="far fa-envelope"></i></a>
@@ -99,7 +106,7 @@
                   <i class="fab fa-python"></i>
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">Python</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">
                     파이썬 지식을 습득하여, 주 프로그래밍 언어로 사용중입니다.
                     크롤링, 알고리즘 풀이 및 다양하게 사용하여 더 익숙해지면서 계속 성장을 하고 있습니다.
@@ -113,7 +120,7 @@
                   <img src="assets/logo_django.png" alt="">
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">Django</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">
                     파이썬 기반의 백엔드 개발자를 희망하기에 웹프레임워크로 장고를 선택하였습니다.
                     장고의 CRUD기능을 활용하여 프론트엔드와 협업하여 서비스를 만들어 보았습니다.
@@ -127,7 +134,7 @@
                   <i class="fab fa-js"></i>
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">Javscript</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">
                     웹 개발자를 지망하면 프론트, 백엔드 구분없이 공부해야 된다는 언어로 생각하여 공부중입니다.
                     jQuery 라이브러리를 활용하여 이벤트 콜백함수를 호출해서 원하는 기능을 구현해 봤으며, AJAX를 활용해 페이지 리로딩없이 비동기적으로 통신하여
@@ -142,7 +149,7 @@
                   <i class="fab fa-html5"></i>
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">HTML</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 </div>
               </div>
@@ -153,7 +160,7 @@
                   <i class="fab fa-css3-alt"></i>
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">CSS</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 </div>
               </div>
@@ -164,7 +171,7 @@
                   <i class="fab fa-github"></i>
                 </span>
                 <div class="card-body">
-                  <h5 class="card-title">Git</h5>
+                  <h5 class="card-title"></h5>
                   <p class="card-text">
                     협업의 꽃이라 생각하는 git과 github를 사용해서 코드를 관리했습니다.
                     github를 이용해서 블로그 및 포트폴리오 사이트를 제작하여 사용중입니다.
@@ -306,18 +313,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/scripts.js"></script>
-  <script>
-    var $card = $('#Portfolio--skills .card');
-    console.log('hello1');
-    console.log($card);
-    $card.each(function(idx, item){
-      $(item).waypoint(function(){
-        $(item).addClass('show')
-        // if (idx % 2 ) $(item).addClass('rigth');
-        // else $(item).addClass('left');
-      }, {offset: '50%'})
-    });
-  </script>
 </body>
 
 </html>

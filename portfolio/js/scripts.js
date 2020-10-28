@@ -38,10 +38,8 @@ $(function () {
 		fullHeight();
   });
 
-	var $card = $('#Portfolio--skills .card');
-	console.log('hello1');
-	console.log($card);
-	$card.each(function(idx, item){
+	var $ab = $('.animate-box');
+	$ab.each(function(idx, item){
 		$(item).waypoint(function(){
 			if (idx % 2 ) $(item).addClass('fadeInLeft')
 			else $(item).addClass('fadeInRight')

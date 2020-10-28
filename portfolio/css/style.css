@@ -3,123 +3,224 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.8;
 }
-  @media screen and (max-width: 992px) {
-    body {
-      font-size: 16px; } }
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
 
 a {
   color: #2c98f0;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
-  transition: 0.5s; }
-  a:hover, a:active, a:focus {
-    color: #2c98f0;
-    outline: none;
-    text-decoration: none !important; }
+  transition: 0.5s;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #2c98f0;
+  outline: none;
+  text-decoration: none !important;
+}
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #000;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 400;
-  margin: 0 0 30px 0; }
+  margin: 0 0 30px 0;
+}
 
 figure {
   margin-bottom: 2.5em;
   float: left;
-  width: 100%; }
+  width: 100%;
+}
+figure figcaption {
+  font-size: 16px;
+  width: 80%;
+  margin: 20px auto 0px auto;
+  color: #b3b3b3;
+  font-style: italic;
+  font-family: "Noto Sans KR", sans-serif;
+}
+@media screen and (max-width: 480px) {
   figure figcaption {
-    font-size: 16px;
-    width: 80%;
-    margin: 20px auto 0px auto;
-    color: #b3b3b3;
-    font-style: italic;
-    font-family: 'Noto Sans KR', sans-serif; }
-    @media screen and (max-width: 480px) {
-      figure figcaption {
-        width: 100%; } }
+    width: 100%;
+  }
+}
 
 ::-webkit-selection {
   color: #fff;
-  background: #2c98f0; }
+  background: #2c98f0;
+}
 
 ::-moz-selection {
   color: #fff;
-  background: #2c98f0; }
+  background: #2c98f0;
+}
 
 ::selection {
   color: #fff;
-  background: #2c98f0; }
+  background: #2c98f0;
+}
 
 /* 시작 */
 .motto-area {
-		text-align: center;
+  text-align: center;
 }
 
 .motto-text {
-	padding: 1.2rem;
+  padding: 1.2rem;
   font-size: 2rem;
   text-align: center;
-	display: inline-block;
+  display: inline-block;
 }
 
 .motto-text:after {
-    display: block;
-    content: "";
-    width: 100%;
-    height: 10px;
-    background-image: linear-gradient(to right, royalblue, aquamarine);
+  display: block;
+  content: "";
+  width: 100%;
+  height: 10px;
+  background-image: linear-gradient(to right, royalblue, aquamarine);
 }
 
 .Portfolio--nav {
@@ -136,36 +237,36 @@ figure {
 .Portfolio--nav ul {
   text-align: center;
 }
-.Portfolio--nav ul li{
+.Portfolio--nav ul li {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1px;
   transition: 1s;
 }
-.Portfolio--nav ul li:hover{
+.Portfolio--nav ul li:hover {
   text-decoration: underline;
 }
 
-.Portfolio--nav ul li a{
+.Portfolio--nav ul li a {
   color: rgba(0, 0, 0, 0.7);
   transition: 0.5s;
 }
-.Portfolio--nav ul li a:hover{
+.Portfolio--nav ul li a:hover {
   color: #2c98f0;
 }
 
-.profile-area .profile-img{
-		margin: 0 auto 30px;
-    border-radius: 50%;
-		background-image: url('../assets/seokju.jpeg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
+.profile-area .profile-img {
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background-image: url("../assets/seokju.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
 }
-.profile-area .profile-bio .title{
+.profile-area .profile-bio .title {
   font-weight: 700;
   font-size: 22px;
 }
@@ -174,11 +275,11 @@ figure {
 #Portfolio--main {
   width: calc(100% - 250px);
   transition: 0.5s;
-  float:right;
-	border: 1px solid rgba(0,0,0,0.1);
+  float: right;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#Portfolio--main .content{
+#Portfolio--main .content {
   padding: 2.5em;
 }
 
@@ -189,21 +290,21 @@ figure {
   background-image: url(/portfolio/assets/notebook.jpg);
   background-size: cover;
   width: 100%;
-  clear:both;
+  clear: both;
   position: relative;
 }
 
 #Portfolio--hero::before {
-    content: "";
-    width: 100%;
-    background-color: rgba(0,0,0,0.3);
-    height: 100%;
-    display: block;
-    z-index: 99;
-    position: absolute;
+  content: "";
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  display: block;
+  z-index: 99;
+  position: absolute;
 }
 
-#Portfolio--hero .hero-text{
+#Portfolio--hero .hero-text {
   position: absolute;
   top: 35%;
   left: 5%;
@@ -211,58 +312,81 @@ figure {
   color: white;
 }
 
-#Portfolio--hero .hero-text .title{
+#Portfolio--hero .hero-text .title {
   color: white;
   font-size: 30px;
 }
 
-#Portfolio--main .heading-meta{
-	margin-bottom: 15px;
-	text-transform: uppercase;
-	font-weight: 500;
-	letter-spacing: 5px;
-	text-align: center;
-	font-size: 30px;
-	padding-bottom: 50px;
+#Portfolio--main .heading-meta {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 50px;
 }
 
 /* about section */
 #Portfolio--about .about-content .picture img {
-	width: 100%;
-	border-radius: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 #Portfolio--about .about-content .name {
-	font-size: 2rem;
-	text-align: center;
+  font-size: 2rem;
+  text-align: center;
 }
 
 #Portfolio--about .about-content .job {
-	text-align: center;
+  text-align: center;
 }
 
 #Portfolio--about .my-info {
-	padding: 20px 0;
-	letter-spacing: 1.5px;
-	font-size: 16px;
+  padding: 20px 0;
+  letter-spacing: 1.5px;
+  font-size: 16px;
 }
 
-#Portfolio--about .info .extra-info p{
-	font-size: 16px;
-	color: #777;
-	padding-bottom: 2.5em;
+#Portfolio--about .info .extra-info p {
+  font-size: 16px;
+  color: #777;
+  padding-bottom: 2.5em;
 }
 
-#Portfolio--about .info .extra-info a{
-	width: 50px;
-	line-height: 50px;
-	background: #eee;
-	border-radius: 5px;
-	font-size: 16px;
-	color: #000000;
-	display: inline-block;
-	text-align: center;
-	cursor: pointer;
+#Portfolio--about .info .extra-info a {
+  width: 50px;
+  line-height: 50px;
+  background: #eee;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000000;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+#Portfolio--about .valuable {
+  padding: 0 5px 0 5px;
+}
+
+#Portfolio--about .valuable .title {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#Portfolio--about .valuable .title::after {
+  width: 100%;
+  height: 1px;
+  background: #dbdbdb;
+  display: block;
+  content: "";
+}
+
+#Portfolio--about .valuable .content {
+  padding: 10px 0 10px;
+  text-align: left;
 }
 
 .project {
@@ -275,7 +399,7 @@ figure {
 }
 
 .project .desc {
-  background: #2c98f0;
+  background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 300px;
   transition: 0.3s;
@@ -286,58 +410,66 @@ figure {
   opacity: 1;
 }
 
+.project .desc .title {
+  color: #fff;
+}
+
+.project .desc .content {
+  color: #fff;
+}
+
 #Portfolio--skills {
-	background-color: #f9f9ff;
+  background-color: #f9f9ff;
 }
 
 #Portfolio--skills .skill-image {
-	width: 64px;
-	height: 64px;
-	align-self: center;
+  width: 64px;
+  height: 64px;
+  align-self: center;
 }
 .card {
-	visibility: hidden;
-	margin-bottom: 70px;
+  visibility: hidden;
+  margin-bottom: 70px;
 }
 
 .fadeInLeft {
-	visibility: visible;
-	animation: fadeInLeft 1s linear;
+  visibility: visible;
+  animation: fadeInLeft 1s linear;
 }
 
 .fadeInRight {
-	visibility: visible;
-	animation: fadeInRight 1s linear;
+  visibility: visible;
+  animation: fadeInRight 1s linear;
 }
 
 @keyframes fadeInLeft {
-	from {
-		opacity: 0;
-		transform: translate3d(-50px, 0, 0);
-	}
-	to {
-		opacity: 1;
-		transform: none;
-	}
+  from {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes fadeInRight {
-	from {
-		opacity: 0;
-		transform: translate3d(50px, 0, 0);
-	}
-	to {
-		opacity: 1;
-		transform: none;
-	}
+  from {
+    opacity: 0;
+    transform: translate3d(50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 #Portfolio--experience {
-	background-color: #f9f9ff;
+  background-color: #f9f9ff;
 }
 
 @media screen and (max-width: 768px) {
-  .Portfolio--nav{
+  .Portfolio--nav {
     width: 250px;
     -moz-transform: translateX(-300px);
     -webkit-transform: translateX(-300px);
@@ -350,115 +482,116 @@ figure {
   }
 }
 
-.icon i, .icon img {
-	font-size: 2.5rem;
+.icon i,
+.icon img {
+  font-size: 2.5rem;
   position: absolute;
   left: 20px;
   top: 5px;
 }
 
 .icon img {
-	top: 15px;
+  top: 15px;
 }
 
 .color-1 .icon {
-	position: absolute;
-	background:#0863b5;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #0863b5;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-1 .icon::after{
-		content: "Python";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-1 .icon::after {
+  content: "Python";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }
 
 .color-2 .icon {
-	position: absolute;
-	background:#fec600;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #fec600;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-2 .icon::after{
-		content: "Django";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-2 .icon::after {
+  content: "Django";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }
 
 .color-3 .icon {
-	position: absolute;
-	background:#e3001f;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #e3001f;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-3 .icon::after{
-		content: "Javscript";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-3 .icon::after {
+  content: "Javscript";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }
 
 .color-4 .icon {
-	position: absolute;
-	background:#009ee3;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #009ee3;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-4 .icon::after{
-		content: "HTML";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-4 .icon::after {
+  content: "HTML";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }
 
 .color-5 .icon {
-	position: absolute;
-	background:#13a538;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #13a538;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-5 .icon::after{
-		content: "CSS";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-5 .icon::after {
+  content: "CSS";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }
 
 .color-6 .icon {
-	position: absolute;
-	background:#954a97;
-	width:100%;
-	height:50px;
-	top: -30px;
+  position: absolute;
+  background: #954a97;
+  width: 100%;
+  height: 50px;
+  top: -30px;
 }
 
-.color-6 .icon::after{
-		content: "Git";
-    position: absolute;
-    left: 95px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    top: 5px;
+.color-6 .icon::after {
+  content: "Git";
+  position: absolute;
+  left: 95px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  top: 5px;
 }

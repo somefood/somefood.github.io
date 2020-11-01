@@ -615,3 +615,14 @@ figure figcaption {
   padding: 9em;
   font-size: 25px;
 }
+
+@media screen and (max-width: 640px) {
+  #Portfolio--main .content {
+    padding: 1em;
+  }
+
+  #Portfolio--last article {
+    padding: 0;
+    padding-top: 8em;
+  }
+}

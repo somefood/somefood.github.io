@@ -389,6 +389,12 @@ figure figcaption {
   text-align: left;
 }
 
+#Portfolio--project .content .heading-meta::after {
+  display: block;
+  content: "커서를 이미지에 올리면 설명을 볼 수 있습니다!";
+  font-size: 14px;
+}
+
 .project {
   background-size: cover;
   background-position: center center;
@@ -408,6 +414,12 @@ figure figcaption {
 
 .project .desc:hover {
   opacity: 1;
+}
+
+#Portfolio--project > div > div:nth-child(4) > div:nth-child(2) > div > div {
+  opacity: 0.7;
+  font-size: 25px;
+  padding-top: 3em;
 }
 
 .project .desc .title {
@@ -594,4 +606,12 @@ figure figcaption {
   color: #ffffff;
   font-size: 1.2rem;
   top: 5px;
+}
+
+#Portfolio--last article {
+  min-height: 450px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 9em;
+  font-size: 25px;
 }

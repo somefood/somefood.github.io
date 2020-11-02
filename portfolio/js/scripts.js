@@ -43,6 +43,6 @@ $(function () {
 		$(item).waypoint(function(){
 			if (idx % 2 ) $(item).addClass('fadeInLeft')
 			else $(item).addClass('fadeInRight')
-		}, {offset: '50%'})
+		}, {offset: '70%'})
 	});
 }());

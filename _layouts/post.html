@@ -10,6 +10,7 @@ layout: default
     <a href="{{ site.baseurl }}{{ site.tag_page }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
   {% endfor %}
   {% endif %}
+  <nav id="toc"></nav>
   <article>
     {{ content }}
   </article>
@@ -37,7 +38,25 @@ s.setAttribute('data-timestamp', +new Date());
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 {% endif %}
+<script>
+  (function(){
+    let ulTag = document.createElement("ul");
+    let hTags = document.querySelectorAll("h2");
+    Array.prototype.forEach.call(hTags, function (item, idx) {
+      item.setAttribute("id", `toc-${idx}`);
+      let liTag = document.createElement("li");
+      let aTag = document.createElement("a");
+      let tagText = document.createTextNode(item.innerText);
+      aTag.href = `#toc-${idx}`
+      aTag.appendChild(tagText);
+      liTag.appendChild(aTag);
+      ulTag.appendChild(liTag);
+    });
 
+    document.getElementById("toc").appendChild(ulTag);
+
+  })();
+</script>
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">

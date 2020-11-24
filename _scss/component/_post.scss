@@ -43,6 +43,24 @@
   article {
     line-height: 1.4rem;
   }
+
+  #toc {
+    position: fixed;
+    top: 200px;
+    left: 200px;
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: darkgrey;
+      
+      &:hover{
+        color: yellowgreen;
+      }
+    }
+  }
 }
 
 /* Related posts */

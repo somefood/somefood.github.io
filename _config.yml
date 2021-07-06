@@ -43,6 +43,7 @@ nav:
     - '/'
     - { TIL: '/blog/categories/#til' }
     - { Python: '/blog/categories/#python' }
+    - { Java: '/blog/categories/#java '}
     - { Django: '/blog/categories/#django' }
     - { Algorithm: '/blog/categories/#algorithm' }
     - { Linux: '/blog/categories/#linux'}

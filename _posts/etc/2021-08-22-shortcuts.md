@@ -18,3 +18,4 @@ comments: true
 - command + option + n: inline 변수로 만들어줌
 - f2: 오류가 있는데로 이동해준다.
 - iter + tab: 리스트나 배열있으면 반복문 자동 완성
+- command + shift + t: 테스트 생성

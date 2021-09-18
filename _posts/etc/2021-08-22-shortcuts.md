@@ -19,3 +19,5 @@ comments: true
 - f2: 오류가 있는데로 이동해준다.
 - iter + tab: 리스트나 배열있으면 반복문 자동 완성
 - command + shift + t: 테스트 생성
+- command + fn + f12: 해당 클래스의 메소드, 필드 보여줌
+- command + option + b: 구현체 리스트들을 보여줌
